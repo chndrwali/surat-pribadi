@@ -68,8 +68,9 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       backgroundImage: {
-        shape: 'url(/Shape.png)',
-        wave: 'url(/wave.svg)',
+        home: 'url(/bg/bg-home.png)',
+        home_two: 'url(/bg/bg-home-2.png)',
+        button: 'url(/bg/button.png)',
       },
     },
   },
