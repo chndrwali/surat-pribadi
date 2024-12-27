@@ -14,11 +14,11 @@ export const CardRelevant = () => {
     <>
       <div className="w-full flex flex-col items-center justify-center">
         {/* Header section */}
-        <div className="relative w-full max-w-xs sm:max-w-xl mb-[100px]">
+        <div className="relative w-full max-w-xs sm:max-w-xl mb-[70px]">
           {/* Text at the top left */}
           <div className="absolute top-0 left-0 flex flex-col space-y-2">
-            <h2 className="border border-gray-800 rounded-md bg-yellow-400 w-[120px] p-2 font-semibold text-lg uppercase text-center">Deskripsi</h2>
-            <h3 className="bg-blue-200 rounded-md border border-gray-800 p-2 w-[120px] font-semibold text-lg text-center uppercase">Produk</h3>
+            <h2 className=" rounded-md bg-amber-200 w-[80px] -ml-8 p-1 font-black text-sm uppercase text-center text-red-600 -rotate-3">Deskripsi</h2>
+            <h3 className="bg-red-600 rounded-md text-amber-200 -ml-4 w-[68px]  p-1 font-black text-sm text-center uppercase">Produk</h3>
           </div>
           {/* Image at the top right */}
           <div className="absolute top-0 right-0">
