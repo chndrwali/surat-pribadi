@@ -6,7 +6,7 @@ import { newPasswordSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Input } from '@/components/ui/input';
@@ -31,10 +31,10 @@ export const FormNewPassword = () => {
     setIsLoading(true);
     try {
       await axios.post(`/api/users/new-password`, values);
-      toast({ variant: 'success', title: 'Berhasil', description: 'Password anda berhasil di perbarui!' });
+      toast.success('Password berhasil di perbarui');
       router.refresh();
     } catch (error) {
-      toast({ variant: 'destructive', title: 'Gagal', description: 'Password gagal di perbarui' });
+      toast.error('Password gagal di perbarui');
       console.log(error);
     } finally {
       setIsLoading(false);

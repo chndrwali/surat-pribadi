@@ -11,13 +11,12 @@ import { FormSuccess } from '@/components/ui/form-success';
 import { FormError } from '@/components/ui/form-error';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { register } from '@/actions/register';
-import { useToast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 
 export const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
   const [isPending, startTransition] = useTransition();
-  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -35,18 +34,10 @@ export const RegisterForm = () => {
       register(values).then((data) => {
         if (data.error) {
           setError(data.error);
-          toast({
-            variant: 'destructive',
-            title: 'Ahh! Ada yang salah',
-            description: 'Ada yang salah dari request kamu',
-          });
+          toast.error('Ada yang salah!');
         } else if (data.success) {
           setSuccess(data.success);
-          toast({
-            variant: 'success',
-            title: 'Berhasil!',
-            description: 'Kamu berhasil daftar.',
-          });
+          toast.success('Daftar berhasil');
         }
       });
     });
