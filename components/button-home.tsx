@@ -1,7 +1,13 @@
+import UserMenu from '@/components/auth/user-menu';
+import { SafeUser } from '@/types';
 import { House } from 'lucide-react';
 import Link from 'next/link';
 
-export const ButtonHome = () => {
+interface Props {
+  currentUser: SafeUser | null;
+}
+
+export const ButtonHome = ({ currentUser }: Props) => {
   return (
     <div className="fixed top-4 right-4 z-50 flex items-center gap-4">
       {/* Tombol WhatsApp */}
@@ -11,6 +17,7 @@ export const ButtonHome = () => {
       >
         <House size={24} />
       </Link>
+      {currentUser && <UserMenu currentUser={currentUser} />}
     </div>
   );
 };
