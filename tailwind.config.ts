@@ -69,7 +69,9 @@ const config: Config = {
       },
       backgroundImage: {
         home: 'url(/bg/bg-home.png)',
+        home_wide: 'url(/bg/home-wide.png)',
         home_two: 'url(/bg/bg-home-2.png)',
+        home_two_wide: 'url(/bg/home-2-wide.png)',
         button: 'url(/bg/button.png)',
       },
     },

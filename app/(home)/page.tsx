@@ -6,7 +6,7 @@ import { getCurrentUser } from '@/actions/getCurrentUser';
 export default async function Home() {
   const currentUser = await getCurrentUser();
   return (
-    <section className="bg-home bg-cover bg-center h-[100vh] relative sm:bg-none">
+    <section className="bg-home bg-cover bg-center h-[100vh] relative sm:bg-home_wide">
       <Logo />
       <div className="fixed top-24 left-10 ">
         <Image src="/icon/manuk.png" alt="" width={60} height={40} />
