@@ -12,6 +12,7 @@ import { FormError } from '@/components/ui/form-error';
 import { login } from '@/actions/login';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { toast } from 'sonner';
+import { LoaderIcon } from 'lucide-react';
 
 export const LoginForm = () => {
   const [error, setError] = useState<string | undefined>('');
@@ -77,7 +78,14 @@ export const LoginForm = () => {
           <FormSuccess message={success} />
           <FormError message={error} />
           <Button type="submit" className="w-full" disabled={isPending}>
-            Masuk
+            {isPending ? (
+              <>
+                <LoaderIcon className="size-4 animate-spin" />
+                Loading...
+              </>
+            ) : (
+              'Masuk'
+            )}
           </Button>
         </form>
       </Form>
