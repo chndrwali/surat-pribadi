@@ -15,7 +15,7 @@ interface CardWrapperProps {
 export const CardWrapper = ({ children, backButtonHref, backButtonLabel, headerLabel, headerDescription }: CardWrapperProps) => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-[350px]">
+      <Card className="w-[350px] sm:w-[600px] my-0 sm:my-6">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">{headerLabel}</CardTitle>
           <CardDescription className="text-center">{headerDescription}</CardDescription>
