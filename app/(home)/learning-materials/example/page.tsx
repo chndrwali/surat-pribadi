@@ -1,18 +1,16 @@
 import { getCurrentUser } from '@/actions/getCurrentUser';
 import { ButtonHome } from '@/components/button-home';
 import { Metadata } from 'next';
-import { CardDoa } from './card-doa';
 
 export const metadata: Metadata = {
-  title: 'Doa',
+  title: 'Contoh Surat',
 };
 
-export default async function Doa() {
+export default async function Example() {
   const currentUser = await getCurrentUser();
   return (
-    <section className="relative bg-doa bg-cover bg-center min-h-screen sm:bg-doa_wide">
+    <section>
       <ButtonHome currentUser={currentUser} />
-      <CardDoa />
     </section>
   );
 }

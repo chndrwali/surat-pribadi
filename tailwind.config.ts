@@ -74,6 +74,8 @@ const config: Config = {
         home_two_wide: 'url(/bg/home-2-wide.png)',
         button: 'url(/bg/button.png)',
         relevant: 'url(/bg/relevant.png)',
+        doa: 'url(/bg/doa.png)',
+        doa_wide: 'url(/bg/doa-wide.png)',
       },
     },
   },
