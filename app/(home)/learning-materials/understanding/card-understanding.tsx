@@ -23,7 +23,7 @@ export const CardUnderstanding = () => {
 
         {/* Content Box */}
         <div className="bg-yellow-400 rounded-xl max-w-xs sm:max-w-xl shadow-lg border border-gray-800">
-          <div className={`${inter.className} px-6 py-4 space-y-4 text-sm leading-relaxed`}>
+          <div className={`${inter.className} px-6 py-4 space-y-4 text-xs sm:text-sm leading-relaxed`}>
             <p className="text-justify">Rina: &quot;Andi, guru tadi mengatakan bahwa kita harus belajar menulis surat. Tetapi sebenarnya, surat itu apa, sih? Kenapa surat penting untuk kita pelajari?&quot;</p>
             <p className="text-justify">
               Andi: &quot;Sederhana kok, Rin. Surat itu adalah alat komunikasi tertulis yang digunakan untuk menyampaikan pesan dari satu orang atau pihak ke pihak lain. Surat bisa bersifat pribadi, resmi, atau bisnis. Jadi, tergantung
@@ -44,7 +44,7 @@ export const CardUnderstanding = () => {
             <p className="text-justify">Rina: &quot;Ohh, aku mulai ngerti sekarang. Surat resmi mempunyai struktur khusus, ya? Harus ada bagian-bagian yang jelas, begitu?&quot;</p>
           </div>
         </div>
-        <div className="flex justify-between w-full max-w-lg mt-4">
+        <div className=" flex justify-between w-full max-w-lg mt-4">
           <ButtonNextPrevious onClick={() => router.back()} isLeft={true} />
           <ButtonNextPrevious onClick={() => router.push('/learning-materials/understanding/continues')} isLeft={false} />
         </div>

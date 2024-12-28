@@ -1,18 +1,18 @@
 import { getCurrentUser } from '@/actions/getCurrentUser';
 import { ButtonHome } from '@/components/button-home';
 import { Metadata } from 'next';
-import { CardCharacteristic } from './card-characteristic';
+import { CardConclusion } from './card-conclusion';
 
 export const metadata: Metadata = {
-  title: 'Ciri-ciri',
+  title: 'Materi',
 };
 
-export default async function Characteristic() {
+export default async function Conclusion() {
   const currentUser = await getCurrentUser();
   return (
-    <section className="bg-relevant bg-cover bg-center min-h-screen sm:bg-home_two_wide relative">
+    <section className="relative min-h-screen bg-relevant bg-cover bg-center sm:bg-home_two_wide">
       <ButtonHome currentUser={currentUser} />
-      <CardCharacteristic />
+      <CardConclusion />
     </section>
   );
 }

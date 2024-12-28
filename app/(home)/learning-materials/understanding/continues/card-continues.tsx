@@ -16,7 +16,7 @@ export const CardContinues = () => {
 
         {/* Content Box */}
         <div className="bg-yellow-400 rounded-xl max-w-xs sm:max-w-xl shadow-lg border border-gray-800">
-          <div className={`${inter.className} px-6 py-4 space-y-4 text-sm leading-relaxed`}>
+          <div className={`${inter.className} px-6 py-4 space-y-4 text-xs sm:text-sm leading-relaxed`}>
             <p className="text-justify">
               {' '}
               Andi : &quot;Iya, biasanya ada beberapa bagian penting. Mulai dari tanggal, alamat pengirim, alamat penerima, salam pembuka, isi surat, sampai dengan salam penutup dan tanda tangan. Itu yang menjadikan surat resmi lebih
@@ -40,7 +40,7 @@ export const CardContinues = () => {
         </div>
         <div className="flex justify-between w-full max-w-lg mt-4">
           <ButtonNextPrevious onClick={() => router.back()} isLeft={true} />
-          <ButtonNextPrevious onClick={() => router.push('/learning-materials/conclusion')} isLeft={false} />
+          <ButtonNextPrevious onClick={() => router.push('/learning-materials/understanding/conclusion')} isLeft={false} />
         </div>
       </div>
 
