@@ -55,3 +55,8 @@ export const updateUserSchema = z.object({
     message: 'Nama harus diisi',
   }),
 });
+
+export const practiceSchema = z.object({
+  name: z.string().min(1, 'Nama harus diisi'),
+  classes: z.string().min(1, 'Kelas harus diisi'),
+});

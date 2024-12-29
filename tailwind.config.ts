@@ -76,6 +76,7 @@ const config: Config = {
         relevant: 'url(/bg/relevant.png)',
         doa: 'url(/bg/doa.png)',
         doa_wide: 'url(/bg/doa-wide.png)',
+        lkpd: 'url(/bg/lkpd.png)',
       },
     },
   },

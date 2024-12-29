@@ -22,6 +22,8 @@ model User {
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Practice Practice[]
 }
  
 model Account {
@@ -77,6 +79,17 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@id([userId, credentialID])
+}
+
+model Practice {
+  id String @id @default(uuid())
+  name String
+  classes String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
 }
 
 enum UserRole {
