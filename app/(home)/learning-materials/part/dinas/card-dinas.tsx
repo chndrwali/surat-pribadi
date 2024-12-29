@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export const CardPart = () => {
+export const CardDinas = () => {
   const router = useRouter();
 
   return (
@@ -16,7 +16,7 @@ export const CardPart = () => {
           {/* Text at the top left */}
           <div className="absolute top-0 left-0 flex flex-col space-y-2">
             <h2 className=" rounded-md bg-amber-200 w-[150px] -ml-8 p-1 font-black text-sm uppercase text-center text-red-600 -rotate-3">Bagian-bagian</h2>
-            <h3 className="bg-red-600 rounded-md text-amber-200 -ml-4 w-[130px]  p-1 font-black text-sm text-center uppercase">Surat pribadi</h3>
+            <h3 className="bg-red-600 rounded-md text-amber-200 -ml-4 w-[130px]  p-1 font-black text-sm text-center uppercase">Surat dinas</h3>
           </div>
         </div>
 
@@ -24,16 +24,19 @@ export const CardPart = () => {
         <div className=" max-w-xs sm:max-w-xl">
           <div className={` px-6 py-4 space-y-4 text-xs sm:text-sm leading-relaxed`}>
             <ul>
-              <strong>Surat pribadi terdiri atas </strong>
+              <strong>Surat Dinas terdiri dari</strong>
               <ol className="list-decimal ml-4 text-justify">
-                <li>Titimangsa</li>
-                <li>Nama dan Alamat tujuan</li>
-                <li>Salam Pembuka</li>
-                <li>Pembuka surat</li>
-                <li>Isi surat</li>
-                <li>Penutup surat</li>
-                <li>Salam penutup</li>
-                <li>Nama dan tanda tangan pengirim surat</li>
+                <li>Kepala surat (Kop Surat) biasanya mencakup logo instansi </li>
+                <li>Nomor surat </li>
+                <li>Tanggal </li>
+                <li>lampiran</li>
+                <li>Perihal </li>
+                <li>Salam Pembuka </li>
+                <li>Pembuka surat </li>
+                <li>Isi surat </li>
+                <li>Penutup surat </li>
+                <li>Salam Penutup </li>
+                <li>Nama dan tanda tangan </li>
               </ol>
             </ul>
           </div>
@@ -60,7 +63,7 @@ export const CardPart = () => {
       {/* Navigation Buttons */}
       <div className="flex justify-between w-full max-w-lg mt-4">
         <ButtonNextPrevious onClick={() => router.back()} isLeft={true} />
-        <ButtonNextPrevious onClick={() => router.push('/learning-materials/part/dinas')} isLeft={false} />
+        <ButtonNextPrevious onClick={() => router.push('/learning-materials/example')} isLeft={false} />
       </div>
     </>
   );
