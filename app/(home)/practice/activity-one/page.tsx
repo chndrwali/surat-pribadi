@@ -1,3 +1,5 @@
+import { getCurrentUser } from '@/actions/getCurrentUser';
+import { ButtonHome } from '@/components/button-home';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default async function ActivityOne() {
-  return <section></section>;
+  const currentUser = await getCurrentUser();
+  return (
+    <section className="bg-activity_one bg-center bg-cover sm:bg-home_two_wide relative min-h-screen">
+      <ButtonHome currentUser={currentUser} />
+    </section>
+  );
 }
