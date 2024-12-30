@@ -46,14 +46,14 @@ export const CardDinas = () => {
           <h3 className="bg-red-600 rounded-md text-amber-200 -ml-4 w-[200px]  p-1 font-black text-sm text-center uppercase">Berikut contohnya</h3>
           <Dialog>
             <DialogTrigger>
-              <Image src="/icon/titimangsa.png" alt="" width={300} height={300} />
+              <Image src="/icon/struktur-formal.png" alt="" width={300} height={300} />
             </DialogTrigger>
             <DialogContent className="max-w-[900px] w-[90%]">
               <DialogHeader>
                 <DialogTitle>Contoh</DialogTitle>
               </DialogHeader>
               <div className="max-h-[75vh] overflow-y-auto px-2 ">
-                <Image src="/icon/titimangsa.png" alt="" width={600} height={300} className="object-cover" />
+                <Image src="/icon/struktur-formal.png" alt="" width={600} height={300} className="object-cover" />
               </div>
             </DialogContent>
           </Dialog>

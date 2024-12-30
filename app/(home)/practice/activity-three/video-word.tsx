@@ -11,19 +11,13 @@ export const VideoWord = () => {
 
       {/* Laptop frame */}
       <div className="relative mx-auto w-full max-w-[900px]">
-        <div className="relative z-10">
-          {/* YouTube video */}
-          <div className="absolute inset-[9%] top-[4%]">
-            <div className="relative h-0 w-full pb-[56.25%]">
-              <iframe
-                className="absolute inset-0 h-full w-full rounded-lg"
-                src="https://www.youtube.com/embed/1MTyCvS05V4?start=0"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
+        <div className="relative h-0 w-full pb-[56.25%]">
+          <iframe
+            className="absolute inset-0 h-full w-full rounded-lg"
+            src="https://www.youtube.com/embed/1MTyCvS05V4?start=0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </div>
