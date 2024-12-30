@@ -10,9 +10,12 @@ export const metadata: Metadata = {
 export default async function Characteristic() {
   const currentUser = await getCurrentUser();
   return (
-    <section className="bg-relevant bg-cover bg-center min-h-screen sm:bg-home_two_wide relative">
-      <ButtonHome currentUser={currentUser} />
-      <CardCharacteristic />
-    </section>
+    <>
+      <div className="fixed inset-0 bg-relevant bg-center bg-cover bg-no-repeat sm:bg-home_two_wide -z-10" />
+      <section className="relative min-h-screen">
+        <ButtonHome currentUser={currentUser} />
+        <CardCharacteristic />
+      </section>
+    </>
   );
 }

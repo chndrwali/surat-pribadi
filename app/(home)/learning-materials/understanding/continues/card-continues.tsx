@@ -11,7 +11,7 @@ export const CardContinues = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col items-center justify-center">
+      <div className="w-full flex flex-col items-center justify-center mt-[100px]">
         {/* Header section */}
 
         {/* Content Box */}

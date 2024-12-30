@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { HomeIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'sonner';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface QuizQuestion {
   id: number;
@@ -43,6 +44,7 @@ const questions: QuizQuestion[] = [
 ];
 
 export default function TrueFalseQuiz() {
+  const router = useRouter();
   const [answers, setAnswers] = useState<Map<number, boolean>>(new Map());
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
@@ -88,7 +90,6 @@ export default function TrueFalseQuiz() {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <Card className="hidden sm:block relative bg-green-100 p-6 mb-6">
-        <HomeIcon className="absolute top-4 right-4 text-green-800 w-6 h-6" />
         <div className="flex items-start gap-4">
           <div className="w-12 h-12">
             <Image src="/placeholder.svg?height=48&width=48" alt="Cute octopus" className="w-full h-full object-contain" width={100} height={100} />
@@ -100,20 +101,20 @@ export default function TrueFalseQuiz() {
         </div>
       </Card>
 
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="bg-transparent mt-[200px] sm:mt-0 sm:bg-white rounded-lg shadow-lg p-6">
         <table className="w-full border-collapse">
           <thead>
             <tr>
-              <th className="border-2 border-gray-300 bg-green-50 p-3 text-left">PERNYATAAN</th>
-              <th className="border-2 border-gray-300 bg-green-50 p-3 text-center w-24">BENAR</th>
-              <th className="border-2 border-gray-300 bg-green-50 p-3 text-center w-24">SALAH</th>
+              <th className="border-2 border-red-500 sm:border-gray-300 bg-transparent sm:bg-green-50 p-3 text-left">PERNYATAAN</th>
+              <th className="border-2 border-red-500 sm:border-gray-300 bg-transparent sm:bg-green-50 p-3 text-center w-24">BENAR</th>
+              <th className="border-2 border-red-500 sm:border-gray-300 bg-transparent sm:bg-green-50 p-3 text-center w-24">SALAH</th>
             </tr>
           </thead>
           <tbody>
             {questions.map((question) => (
               <tr key={question.id}>
-                <td className="border-2 border-gray-300 p-3">{`${question.id}. ${question.statement}`}</td>
-                <td className="border-2 border-gray-300 p-3 text-center">
+                <td className="border-2 border-red-500 sm:border-gray-300 p-3">{`${question.id}. ${question.statement}`}</td>
+                <td className="border-2 border-red-500 sm:border-gray-300 p-3 text-center">
                   <Button
                     variant="outline"
                     size="sm"
@@ -124,7 +125,7 @@ export default function TrueFalseQuiz() {
                     ✓
                   </Button>
                 </td>
-                <td className="border-2 border-gray-300 p-3 text-center">
+                <td className="border-2 border-red-500 sm:border-gray-300 p-3 text-center">
                   <Button
                     variant="outline"
                     size="sm"
@@ -142,17 +143,17 @@ export default function TrueFalseQuiz() {
 
         <div className="mt-6 flex justify-between items-center">
           <div className="flex gap-2">
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" onClick={() => router.back()}>
               <ChevronLeft className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" onClick={() => router.push('/practice/activity-three')}>
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
 
           <div className="flex items-center gap-4">
-            {submitted && <div className="text-lg font-semibold">Skor: {score} / 100</div>}
-            <Button onClick={handleSubmit} disabled={submitted} className="bg-green-600 hover:bg-green-700 text-white">
+            {submitted && <div className="text-sm sm:text-lg font-semibold">Skor: {score} / 100</div>}
+            <Button variant="shine" onClick={handleSubmit} disabled={submitted}>
               Submit
             </Button>
           </div>
