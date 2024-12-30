@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default async function ActivityOne() {
   const currentUser = await getCurrentUser();
   return (
-    <section className="bg-activity_one bg-center bg-cover sm:bg-home_two_wide relative min-h-screen">
+    <section className="bg-activity_one bg-center bg-cover sm:bg-activity_three_wide relative min-h-screen">
       <ButtonHome currentUser={currentUser} />
     </section>
   );

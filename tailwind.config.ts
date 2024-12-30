@@ -80,6 +80,8 @@ const config: Config = {
         activity_one: 'url(/bg/activity-one.png)',
         activity_assignment: 'url(/bg/soal.png)',
         activity_two: 'url(/bg/activity-two.png)',
+        activity_three: 'url(/bg/acitivity-three.png)',
+        activity_three_wide: 'url(/bg/activity-three-wide.png)',
       },
     },
   },

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default async function ActivityTwo() {
   return (
-    <section className="relative min-h-screen bg-activity_two bg-center bg-cover sm:bg-home_two_wide">
+    <section className="relative min-h-screen bg-activity_two bg-center bg-cover sm:bg-activity_three_wide">
       <TrueFalseQuiz />
     </section>
   );

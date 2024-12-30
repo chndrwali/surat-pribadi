@@ -92,7 +92,7 @@ export default function TrueFalseQuiz() {
       <Card className="hidden sm:block relative bg-green-100 p-6 mb-6">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12">
-            <Image src="/placeholder.svg?height=48&width=48" alt="Cute octopus" className="w-full h-full object-contain" width={100} height={100} />
+            <Image src="/bg/ubur.png" alt="Cute octopus" className="w-full h-full object-contain" width={100} height={100} />
           </div>
           <div>
             <h2 className="text-xl font-bold text-green-800">AKTIVITAS 2</h2>
