@@ -22,17 +22,30 @@ export const CardExampleDinas = () => {
 
         {/* Content Box */}
         <div className=" max-w-xs sm:max-w-xl">
-          <div className={` px-6 py-4 space-y-4 text-xs sm:text-sm leading-relaxed`}>
+          <div className={` px-6 py-4 space-x-4 flex items-center`}>
             <Dialog>
               <DialogTrigger>
-                <Image src="/icon/formal.jpeg" alt="" width={300} height={300} />
+                <Image src="/icon/struktur-formal-1.png" alt="" width={300} height={300} />
               </DialogTrigger>
               <DialogContent className="max-w-[900px] w-[90%]">
                 <DialogHeader>
                   <DialogTitle>Contoh</DialogTitle>
                 </DialogHeader>
                 <div className="max-h-[75vh] overflow-y-auto px-2 ">
-                  <Image src="/icon/formal.jpeg" alt="" width={600} height={300} className="object-cover" />
+                  <Image src="/icon/struktur-formal-1.png" alt="" width={600} height={300} className="object-cover" />
+                </div>
+              </DialogContent>
+            </Dialog>
+            <Dialog>
+              <DialogTrigger>
+                <Image src="/icon/struktur-formal-2.png" alt="" width={300} height={300} />
+              </DialogTrigger>
+              <DialogContent className="max-w-[900px] w-[90%]">
+                <DialogHeader>
+                  <DialogTitle>Contoh</DialogTitle>
+                </DialogHeader>
+                <div className="max-h-[75vh] overflow-y-auto px-2 ">
+                  <Image src="/icon/struktur-formal-2.png" alt="" width={600} height={300} className="object-cover" />
                 </div>
               </DialogContent>
             </Dialog>
