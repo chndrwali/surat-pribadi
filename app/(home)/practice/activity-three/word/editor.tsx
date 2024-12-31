@@ -87,7 +87,6 @@ export const Editor = () => {
         defaultProtocol: 'https',
       }),
     ],
-    content: '<p>Hello World! 🌎️</p>',
   });
 
   return (

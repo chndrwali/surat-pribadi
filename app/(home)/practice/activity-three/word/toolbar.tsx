@@ -23,7 +23,7 @@ import {
   ListIcon,
   ListOrderedIcon,
   ListTodoIcon,
-  LucideIcon,
+  type LucideIcon,
   MinusIcon,
   PlusIcon,
   PrinterIcon,
@@ -67,7 +67,7 @@ const ListButton = () => {
           <ListIcon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 w-[calc(100vw-1rem)] sm:w-auto">
         {lists.map(({ label, icon: Icon, onClick, isActive }) => (
           <button key={label} onClick={onClick} className={cn('flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80', isActive() && 'bg-neutral-200/80')}>
             <Icon className="size-4" />
@@ -111,7 +111,7 @@ const AlignButton = () => {
           <AlignLeftIcon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 w-[calc(100vw-1rem)] sm:w-auto">
         {alignments.map(({ label, value, icon: Icon }) => (
           <button
             key={label}
@@ -149,7 +149,7 @@ const LinkButton = () => {
           <Link2Icon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2.5 flex items-center gap-x-2">
+      <DropdownMenuContent className="p-2.5 flex items-center gap-x-2 w-[calc(100vw-1rem)] sm:w-auto">
         <Input placeholder="https://example.com" value={value} onChange={(e) => setValue(e.target.value)} />
         <Button onClick={() => onChange(value)}>Apply</Button>
       </DropdownMenuContent>
@@ -173,7 +173,7 @@ const HighlightColorButton = () => {
           <HighlighterIcon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-0">
+      <DropdownMenuContent className="p-0 w-[calc(100vw-1rem)] sm:w-auto">
         <SketchPicker color={value} onChange={onChange} />
       </DropdownMenuContent>
     </DropdownMenu>
@@ -222,7 +222,7 @@ const ImageButton = () => {
             <ImageIcon className="size-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="w-[calc(100vw-1rem)] sm:w-auto">
           <DropdownMenuItem onClick={onUpload}>
             <UploadIcon className="size-4 mr-2" />
             Upload
@@ -282,7 +282,7 @@ const TextColorButton = () => {
           <div className="h-0.5 w-full" style={{ backgroundColor: value }} />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-0">
+      <DropdownMenuContent className="p-0 w-[calc(100vw-1rem)] sm:w-auto">
         <SketchPicker color={value} onChange={onChange} />
       </DropdownMenuContent>
     </DropdownMenu>
@@ -342,7 +342,7 @@ const HeadingLevelButton = () => {
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 w-[calc(100vw-1rem)] sm:w-auto">
         {headings.map(({ label, value, fontSize }) => (
           <button
             key={value}
@@ -381,12 +381,12 @@ const FontFamilyButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-7 w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
+        <button className="h-7 w-[100px] lg:w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
           <span className="truncate">{editor?.getAttributes('textStyle').fontFamily || 'Arial'}</span>
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 w-[calc(100vw-1rem)] sm:w-auto">
         {fonts.map(({ label, value }) => (
           <DropdownMenuItem
             key={value}
@@ -410,12 +410,12 @@ const TableButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-7 w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
+        <button className="h-7 w-[100px] lg:w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
           <span className="truncate">Table</span>
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 w-[calc(100vw-1rem)] sm:w-auto">
         <DropdownMenuItem onClick={() => insertTable({ rows: 1, cols: 1 })}>1x1</DropdownMenuItem>
         <DropdownMenuItem onClick={() => insertTable({ rows: 2, cols: 2 })}>2x2</DropdownMenuItem>
         <DropdownMenuItem onClick={() => insertTable({ rows: 3, cols: 3 })}>3x3</DropdownMenuItem>
@@ -573,32 +573,38 @@ export const Toolbar = () => {
   ];
 
   return (
-    <div className="bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
-      {sections[0].map((item) => (
-        <ToolbarButton key={item.label} {...item} />
-      ))}
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      <FontFamilyButton />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      <TableButton />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      <HeadingLevelButton />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      <FontSizeButton />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {sections[1].map((item) => (
-        <ToolbarButton key={item.label} {...item} />
-      ))}
-      <TextColorButton />
-      <HighlightColorButton />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      <LinkButton />
-      <ImageButton />
-      <AlignButton />
-      <ListButton />
-      {sections[2].map((item) => (
-        <ToolbarButton key={item.label} {...item} />
-      ))}
+    <div className="bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-2 lg:gap-x-0.5">
+      <div className="flex items-center gap-x-0.5 overflow-x-auto">
+        {sections[0].map((item) => (
+          <ToolbarButton key={item.label} {...item} />
+        ))}
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 hidden lg:block" />
+      </div>
+      <div className="flex items-center gap-x-0.5 overflow-x-auto">
+        <FontFamilyButton />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 hidden lg:block" />
+        <TableButton />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 hidden lg:block" />
+        <HeadingLevelButton />
+      </div>
+      <div className="flex items-center gap-x-0.5 overflow-x-auto">
+        <FontSizeButton />
+        <Separator orientation="vertical" className="h-6 bg-neutral-300 hidden lg:block" />
+        {sections[1].map((item) => (
+          <ToolbarButton key={item.label} {...item} />
+        ))}
+        <TextColorButton />
+        <HighlightColorButton />
+      </div>
+      <div className="flex items-center gap-x-0.5 overflow-x-auto">
+        <LinkButton />
+        <ImageButton />
+        <AlignButton />
+        <ListButton />
+        {sections[2].map((item) => (
+          <ToolbarButton key={item.label} {...item} />
+        ))}
+      </div>
     </div>
   );
 };
