@@ -142,19 +142,18 @@ export default function TrueFalseQuiz() {
         </table>
 
         <div className="mt-6 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            <Button variant="shine" onClick={handleSubmit} disabled={submitted}>
+              Submit
+            </Button>
+            {submitted && <div className="text-sm sm:text-lg font-semibold">Skor: {score} / 100</div>}
+          </div>
           <div className="flex gap-2">
             <Button variant="outline" size="icon" onClick={() => router.back()}>
               <ChevronLeft className="h-4 w-4" />
             </Button>
             <Button variant="outline" size="icon" onClick={() => router.push('/practice/activity-three')}>
               <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="flex items-center gap-4">
-            {submitted && <div className="text-sm sm:text-lg font-semibold">Skor: {score} / 100</div>}
-            <Button variant="shine" onClick={handleSubmit} disabled={submitted}>
-              Submit
             </Button>
           </div>
         </div>

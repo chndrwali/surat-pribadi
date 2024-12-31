@@ -1,16 +1,16 @@
-import { getCurrentUser } from '@/actions/getCurrentUser';
-import { ButtonHome } from '@/components/button-home';
+import { OnlyHome } from '@/components/only-home';
 import { Metadata } from 'next';
+import { LiveWork } from './live-work';
 
 export const metadata: Metadata = {
   title: 'Aktivitas 1',
 };
 
 export default async function ActivityOne() {
-  const currentUser = await getCurrentUser();
   return (
-    <section className="bg-activity_one bg-center bg-cover sm:bg-activity_three_wide relative min-h-screen">
-      <ButtonHome currentUser={currentUser} />
+    <section className="bg-activity_three bg-center bg-cover sm:bg-activity_three_wide relative min-h-screen">
+      <OnlyHome />
+      <LiveWork />
     </section>
   );
 }

@@ -560,7 +560,7 @@ const PdfExportButton = () => {
   };
 
   return (
-    <button onClick={exportToPdf} className="h-7 w-[100px] lg:w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
+    <button onClick={exportToPdf} className="h-7 w-[120px] lg:w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
       <FileDown className="h-4 w-4" />
       Export PDF
     </button>
