@@ -1,51 +1,36 @@
-import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react';
+'use client';
 
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
+import { Users } from 'lucide-react';
+
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { UserMenuFooter } from '@/app/(admin)/_components/userMenuFooter';
-
-// Menu items.
-const items = [
-  {
-    title: 'Home',
-    url: '#',
-    icon: Home,
-  },
-  {
-    title: 'Inbox',
-    url: '#',
-    icon: Inbox,
-  },
-  {
-    title: 'Calendar',
-    url: '#',
-    icon: Calendar,
-  },
-  {
-    title: 'Search',
-    url: '#',
-    icon: Search,
-  },
-  {
-    title: 'Settings',
-    url: '#',
-    icon: Settings,
-  },
-];
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export function AppSidebar() {
+  const pathname = usePathname();
+  // Menu items.
+  const items = [
+    {
+      title: 'Murid',
+      url: '/admin',
+      icon: Users,
+      active: pathname === '/admin',
+    },
+  ];
+
   return (
     <Sidebar variant="floating" collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                  <SidebarMenuButton asChild className={cn('flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200', item.active ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100 hover:text-gray-800 text-gray-600')}>
+                    <a href={item.url} className="flex items-center gap-3">
+                      <item.icon className={cn('h-5 w-5 transition-all duration-200', item.active ? 'text-blue-500' : 'text-gray-500')} />
+                      <span className="font-medium text-sm">{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
