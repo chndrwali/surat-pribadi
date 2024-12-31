@@ -34,7 +34,9 @@ import {
   UnderlineIcon,
   Undo2Icon,
   UploadIcon,
+  FileDown,
 } from 'lucide-react';
+import html2pdf from 'html2pdf.js';
 import { useState } from 'react';
 
 interface ToolbarButtonProps {
@@ -503,6 +505,68 @@ const FontSizeButton = () => {
   );
 };
 
+const PdfExportButton = () => {
+  const { editor } = useEditorStore();
+
+  const exportToPdf = async () => {
+    if (!editor) return;
+
+    // Get the editor content
+    const editorElement = editor.view.dom;
+
+    // Clone the editor content to avoid modifying the original
+    const contentClone = editorElement.cloneNode(true) as HTMLElement;
+
+    // Create a temporary container
+    const container = document.createElement('div');
+    container.appendChild(contentClone);
+
+    // Apply specific styles for PDF export
+    contentClone.style.padding = '40px';
+    contentClone.style.width = '210mm'; // A4 width
+    contentClone.style.minHeight = '297mm'; // A4 height
+    contentClone.style.backgroundColor = 'white';
+    contentClone.style.position = 'relative';
+
+    // Remove any contenteditable attributes
+    contentClone.removeAttribute('contenteditable');
+
+    // Configure PDF options
+    const opt = {
+      margin: [0, 0, 0, 0],
+      filename: 'document.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        letterRendering: true,
+      },
+      jsPDF: {
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait',
+      },
+    };
+
+    try {
+      // Generate PDF
+      await html2pdf().set(opt).from(contentClone).save();
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    } finally {
+      // Clean up
+      container.remove();
+    }
+  };
+
+  return (
+    <button onClick={exportToPdf} className="h-7 w-[100px] lg:w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
+      <FileDown className="h-4 w-4" />
+      Export PDF
+    </button>
+  );
+};
+
 export const Toolbar = () => {
   const { editor } = useEditorStore();
 
@@ -575,6 +639,8 @@ export const Toolbar = () => {
   return (
     <div className="bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-2 lg:gap-x-0.5">
       <div className="flex items-center gap-x-0.5 overflow-x-auto">
+        <PdfExportButton />
+
         {sections[0].map((item) => (
           <ToolbarButton key={item.label} {...item} />
         ))}
