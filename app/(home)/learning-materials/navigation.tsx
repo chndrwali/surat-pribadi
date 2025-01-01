@@ -13,12 +13,12 @@ const route = [
     link: '/learning-materials/characteristic',
   },
   {
-    label: 'Contoh surat',
-    link: '/learning-materials/example',
-  },
-  {
     label: 'Bagian-bagian surat',
     link: '/learning-materials/part',
+  },
+  {
+    label: 'Contoh surat',
+    link: '/learning-materials/example',
   },
 ];
 
@@ -38,7 +38,6 @@ export const Navigation = () => {
       </div>
       <div className="flex justify-between w-full max-w-lg mt-4">
         <ButtonNextPrevious onClick={() => router.back()} isLeft={true} />
-        <ButtonNextPrevious onClick={() => router.push('/learning-materials/understanding')} isLeft={false} />
       </div>
     </>
   );

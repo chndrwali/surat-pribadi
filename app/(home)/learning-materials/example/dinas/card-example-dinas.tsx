@@ -56,7 +56,6 @@ export const CardExampleDinas = () => {
       {/* Navigation Buttons */}
       <div className="flex justify-between w-full max-w-lg mt-4">
         <ButtonNextPrevious onClick={() => router.back()} isLeft={true} />
-        <ButtonNextPrevious onClick={() => router.push('/practice')} isLeft={false} />
       </div>
     </>
   );

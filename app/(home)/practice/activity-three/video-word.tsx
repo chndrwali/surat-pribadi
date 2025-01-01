@@ -21,7 +21,7 @@ export const VideoWord = () => {
         <div className="relative h-0 w-full pb-[56.25%]">
           <iframe
             className="absolute inset-0 h-full w-full rounded-lg"
-            src="https://www.youtube.com/embed/1MTyCvS05V4?start=0"
+            src="https://www.youtube.com/embed/_FLh7ao3w5E"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
