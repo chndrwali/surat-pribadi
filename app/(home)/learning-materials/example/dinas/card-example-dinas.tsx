@@ -22,7 +22,7 @@ export const CardExampleDinas = () => {
 
         {/* Content Box */}
         <div className=" max-w-xs sm:max-w-xl">
-          <div className={` px-6 py-4 space-x-4 flex items-center`}>
+          <div className={` px-6 py-4 space-y-4 flex flex-col items-center`}>
             <Dialog>
               <DialogTrigger>
                 <Image src="/icon/struktur-formal-1.png" alt="" width={300} height={300} />
