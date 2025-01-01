@@ -12,7 +12,7 @@ export const LiveWork = () => {
     <div className="max-w-4xl mx-auto p-6">
       <div className="relative mb-8 flex items-center gap-2">
         <Image src="/bg/ubur.png" alt="Mascot character" width={60} height={60} className="h-[60px] w-auto" />
-        <h1 className="rounded-full bg-[#90c95b] px-6 py-2 text-xl font-bold text-white">AKTIVITAS 1</h1>
+        <h1 className="rounded-full bg-[#90c95b] px-6 py-2 text-xl font-bold text-white">AKTIVITAS 2</h1>
       </div>
       <h3 className="bg-red-600 rounded-md text-amber-200 -ml-4 w-[180px]  p-1 font-black text-sm text-center uppercase">Soal Menjodohkan</h3>
       <h2 className="mb-6 text-center text-xl font-semibold uppercase text-gray-800">Klik tomboh dibawah ini untuk memulai</h2>

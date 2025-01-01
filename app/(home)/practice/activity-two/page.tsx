@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import TrueFalseQuiz from './true-false-quiz';
+import { OnlyHome } from '@/components/only-home';
+import { LiveWork } from './live-work';
 
 export const metadata: Metadata = {
   title: 'Aktivitas 2',
@@ -7,8 +8,9 @@ export const metadata: Metadata = {
 
 export default async function ActivityTwo() {
   return (
-    <section className="relative min-h-screen bg-activity_two bg-center bg-cover sm:bg-activity_three_wide">
-      <TrueFalseQuiz />
+    <section className="relative min-h-screen bg-activity_three bg-center bg-cover sm:bg-activity_three_wide">
+      <OnlyHome />
+      <LiveWork />
     </section>
   );
 }

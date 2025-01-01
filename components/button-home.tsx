@@ -6,15 +6,18 @@ import Link from 'next/link';
 interface Props {
   currentUser: SafeUser | null;
   materials?: boolean;
+  hide?: boolean;
 }
 
-export const ButtonHome = ({ currentUser, materials }: Props) => {
+export const ButtonHome = ({ currentUser, materials, hide }: Props) => {
   return (
     <div className="fixed top-4 right-4 z-50 flex items-center gap-4">
       {/* Tombol WhatsApp */}
       <Link
         href={materials ? '/learning-materials' : '/home'}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-primary hover:shadow-xl hover:opacity-90 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-background"
+        className={`${
+          hide ? 'hidden' : 'flex'
+        } h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-primary hover:shadow-xl hover:opacity-90 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-background`}
       >
         <House size={24} />
       </Link>

@@ -95,7 +95,7 @@ export default function TrueFalseQuiz() {
             <Image src="/bg/ubur.png" alt="Cute octopus" className="w-full h-full object-contain" width={100} height={100} />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-green-800">AKTIVITAS 2</h2>
+            <h2 className="text-xl font-bold text-green-800">AKTIVITAS 1</h2>
             <p className="text-green-700 mt-2">Centanglah pernyataan dibawah ini yang menurut mu benar</p>
           </div>
         </div>
