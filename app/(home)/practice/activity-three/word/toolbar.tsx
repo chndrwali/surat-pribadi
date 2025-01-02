@@ -38,6 +38,7 @@ import {
 } from 'lucide-react';
 import html2pdf from 'html2pdf.js';
 import { useState } from 'react';
+import { useCurrentUser } from '@/hooks/use-current-user';
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -507,6 +508,7 @@ const FontSizeButton = () => {
 
 const PdfExportButton = () => {
   const { editor } = useEditorStore();
+  const user = useCurrentUser();
 
   const exportToPdf = async () => {
     if (!editor) return;
@@ -534,7 +536,7 @@ const PdfExportButton = () => {
     // Configure PDF options
     const opt = {
       margin: [0, 0, 0, 0],
-      filename: 'document.pdf',
+      filename: `${user?.name} - Aktivitas 3.pdf` || `document - Aktivitas 3.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: {
         scale: 2,
