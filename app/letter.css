@@ -1,0 +1,24 @@
+.letter-error {
+  background: linear-gradient(to bottom, transparent 95%, #ef4444 95%);
+  position: relative;
+}
+
+.letter-error::after {
+  content: attr(data-error);
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.letter-error:hover::after {
+  opacity: 1;
+}

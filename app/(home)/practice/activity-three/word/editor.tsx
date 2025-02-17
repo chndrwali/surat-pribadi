@@ -21,6 +21,8 @@ import Table from '@tiptap/extension-table';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
 import TableRow from '@tiptap/extension-table-row';
+import '@/app/letter.css';
+import { LetterStructure } from './letter-structure';
 
 export const Editor = () => {
   const { setEditor } = useEditorStore();
@@ -36,6 +38,7 @@ export const Editor = () => {
     },
     onUpdate({ editor }) {
       setEditor(editor);
+      editor.commands.validateStructure();
     },
     onSelectionUpdate({ editor }) {
       setEditor(editor);
@@ -60,6 +63,7 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      LetterStructure,
       FontSizeExtension,
       Image,
       ImageResize,
