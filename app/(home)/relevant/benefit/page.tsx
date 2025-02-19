@@ -27,7 +27,7 @@ export default async function Benefit() {
               </tr>
               <tr>
                 <td>Fase</td>
-                <td>: A</td>
+                <td>: C</td>
               </tr>
               <tr>
                 <td>Elemen</td>

@@ -98,22 +98,22 @@ export const LetterStructure = Extension.create({
               ) {
                 errors.push({
                   line,
-                  message: 'Tanggal harus berada di bagian atas surat dan memiliki format yang valid',
+                  message: 'Tempat dan Tanggal harus berada di bagian atas surat dan ditulis dibagian kanan',
                   from,
                   to,
                 });
               }
 
               // Check opening greeting
-              if (currentSection === 2 && !text.includes('kepada yth') && !text.includes('dear')) {
+              if (currentSection === 2 && !text.includes('sahabatku') && !text.includes('ibu tercinta') && !text.includes('ayah tercinta')) {
                 errors.push({
                   line,
-                  message: 'Salam pembuka diperlukan (contoh: Kepada Yth.)',
+                  message: 'Salam pembuka diperlukan (contoh: Sahabatku/ibu tercinta/ayah tercinta.)',
                   from,
                   to,
                 });
               }
-              if (currentSection === 6 && !text.includes('assalamu`alaikum')) {
+              if (currentSection === 7 && !text.includes('assalamu`alaikum')) {
                 errors.push({
                   line,
                   message: 'Salam diperlukan (contoh: assalamu`alaikum)',
@@ -123,7 +123,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check letter content
-              if (currentSection === 8 && text.length < 50) {
+              if (currentSection === 9 && text.length < 50) {
                 errors.push({
                   line,
                   message: 'Paragraf satu terlalu pendek',
@@ -131,7 +131,7 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-              if (currentSection === 9 && text.length < 50) {
+              if (currentSection === 11 && text.length < 50) {
                 errors.push({
                   line,
                   message: 'Paragraf dua terlalu pendek',
@@ -141,7 +141,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check closing
-              if (currentSection === 10 && !text.includes('wassalamu`alaikum') && !text.includes('salam') && !text.includes('salam')) {
+              if (currentSection === 13 && !text.includes('wassalamu`alaikum') && !text.includes('salam') && !text.includes('salam')) {
                 errors.push({
                   line,
                   message: 'Salam penutup diperlukan (contoh: Wassalamu`alaikum / salam)',
@@ -151,10 +151,10 @@ export const LetterStructure = Extension.create({
               }
 
               // Check signature
-              if (currentSection === 11 && text.length < 5) {
+              if (currentSection === 14 && text.length < 5) {
                 errors.push({
                   line,
-                  message: 'Tanda tangan dan nama pengirim diperlukan',
+                  message: 'Tanda tangan dan nama pengirim diperlukan, ditulis sebelah kanan',
                   from,
                   to,
                 });
