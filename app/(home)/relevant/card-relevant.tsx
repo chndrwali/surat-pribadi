@@ -32,11 +32,11 @@ export const CardRelevant = () => {
             <h1 className="text-base font-semibold">Assalamualaikum warohmatullahi wabarokatuh</h1>
 
             <p className="text-justify">
-              Puji dan syukur ke hadirat Allah swt. karena berkat rahmat dan karunianya saya dapat menyelesaikan media pembelajaran berbasis aplikasi Web yang diberi nama &quot;Supri&quot; yang merupakan kependekan dari surat pribadi.
+              Puji dan syukur ke hadirat Allah swt. karena berkat rahmat dan karunianya saya dapat menyelesaikan media pembelajaran berbasis Website yang diberi nama &quot;Surnas&quot; yang merupakan kependekan dari surat dinas.
             </p>
             <p className="text-justify">
-              Aplikasi Supri ini merupakan aplikasi yang di dalamnya membahas mengenai materi pembuatan surat. Bukan hanya materi saja, di dalam aplikasi ini juga terdapat beberapa fitur di antaranya yaitu fitur relevansi, lagu, permainan,
-              serta praktik pembuatan surat. Aplikasi ini dikemas dengan semenarik mungkin agar peserta didik mudah untuk memahaminya. Semoga aplikasi ini bermanfaat untuk menambah ilmu pengetahuan dan dapat menambah wawasan bagi para
+              Website Surnas ini merupakan aplikasi yang di dalamnya membahas mengenai materi pembuatan surat. Bukan hanya materi saja, di dalam aplikasi ini juga terdapat beberapa fitur di antaranya yaitu : relevansi, lagu, permainan,
+              serta praktik pembuatan surat. Website ini dikemas dengan semenarik mungkin agar peserta didik mudah untuk memahaminya. Semoga aplikasi ini bermanfaat untuk menambah ilmu pengetahuan dan dapat menambah wawasan bagi para
               pengguna.
             </p>
           </div>

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-this-alias */
-import { Extension } from '@tiptap/core';
+import { Extension } from '@tiptap/react';
 import { Plugin, PluginKey } from 'prosemirror-state';
 import { DecorationSet, Decoration } from 'prosemirror-view';
 import { Node as ProseMirrorNode } from 'prosemirror-model';
@@ -91,8 +91,40 @@ export const LetterStructure = Extension.create({
               const line = findLineNumber(pos);
 
               // Check date format (DD/MM/YYYY, DD-MM-YYYY, or "Place, DD Month YYYY")
+              if (currentSection === 0 && text.length < 15) {
+                errors.push({
+                  line,
+                  message: 'Judul minimal 15 karakter/huruf',
+                  from,
+                  to,
+                });
+              }
+              if (currentSection === 1 && text.length < 10) {
+                errors.push({
+                  line,
+                  message: 'Kop surat harus mencantumkan nama institusi',
+                  from,
+                  to,
+                });
+              }
+              if (currentSection === 2 && text.length < 10) {
+                errors.push({
+                  line,
+                  message: 'Kop surat harus mencantumkan alamat ',
+                  from,
+                  to,
+                });
+              }
+              if (currentSection === 3 && !text.includes('email') && !text.includes('hp')) {
+                errors.push({
+                  line,
+                  message: 'Kop surat harus mencantumkan email & no hp',
+                  from,
+                  to,
+                });
+              }
               if (
-                currentSection === 0 &&
+                currentSection === 5 &&
                 !text.match(/[A-Za-zÀ-ÖØ-öø-ÿ\s]+,\s\d{2}[-/]\d{2}[-/]\d{4}/) &&
                 !text.match(/[A-Za-zÀ-ÖØ-öø-ÿ\s]+,\s\d{1,2}\s(?:Jan(?:uari)?|Feb(?:ruari)?|Mar(?:et)?|Apr(?:il)?|Mei|Jun(?:i)?|Jul(?:i)?|Ags(?:ustus)?|Sep(?:tember)?|Okt(?:ober)?|Nov(?:ember)?|Des(?:ember)?)\s\d{4}/i)
               ) {
@@ -103,17 +135,41 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-
-              // Check opening greeting
-              if (currentSection === 2 && !text.includes('sahabatku') && !text.includes('ibu tercinta') && !text.includes('ayah tercinta')) {
+              if (currentSection === 6 && !text.match(/[0-9]/)) {
                 errors.push({
                   line,
-                  message: 'Salam pembuka diperlukan (contoh: Sahabatku/ibu tercinta/ayah tercinta.)',
+                  message: 'Nomor surat harus berada di bagian atas surat dan ditulis dibagian kiri',
                   from,
                   to,
                 });
               }
-              if (currentSection === 7 && !text.includes('assalamu`alaikum')) {
+              if (currentSection === 7 && !text.includes('lampiran')) {
+                errors.push({
+                  line,
+                  message: 'lampiran harus berada di bagian atas surat dan ditulis dibagian kiri',
+                  from,
+                  to,
+                });
+              }
+              if (currentSection === 8 && !text.includes('perihal')) {
+                errors.push({
+                  line,
+                  message: 'perihal harus berada di bagian atas surat dan ditulis dibagian kiri',
+                  from,
+                  to,
+                });
+              }
+
+              // Check opening greeting
+              if (currentSection === 10 && !text.includes('yth')) {
+                errors.push({
+                  line,
+                  message: 'Salam pembuka diperlukan (contoh: Yth. Ibu Amulistia)',
+                  from,
+                  to,
+                });
+              }
+              if (currentSection === 14 && !text.includes('assalamu')) {
                 errors.push({
                   line,
                   message: 'Salam diperlukan (contoh: assalamu`alaikum)',
@@ -123,7 +179,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check letter content
-              if (currentSection === 9 && text.length < 50) {
+              if (currentSection === 15 && text.length < 50) {
                 errors.push({
                   line,
                   message: 'Paragraf satu terlalu pendek',
@@ -131,7 +187,7 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-              if (currentSection === 11 && text.length < 50) {
+              if (currentSection === 16 && text.length < 25) {
                 errors.push({
                   line,
                   message: 'Paragraf dua terlalu pendek',
@@ -141,7 +197,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check closing
-              if (currentSection === 13 && !text.includes('wassalamu`alaikum') && !text.includes('salam') && !text.includes('salam')) {
+              if (currentSection === 17 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
                 errors.push({
                   line,
                   message: 'Salam penutup diperlukan (contoh: Wassalamu`alaikum / salam)',
@@ -151,7 +207,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check signature
-              if (currentSection === 14 && text.length < 5) {
+              if (currentSection === 19 && text.length < 5) {
                 errors.push({
                   line,
                   message: 'Tanda tangan dan nama pengirim diperlukan, ditulis sebelah kanan',

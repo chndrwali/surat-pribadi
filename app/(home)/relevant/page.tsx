@@ -12,7 +12,7 @@ export default async function RelevantPage() {
       <OnlyHome />
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-6xl font-bold text-white mt-[50px]" style={{ textShadow: '2px 2px 0 #0000ff' }}>
-          Supri
+          Surnas
         </h1>
       </div>
       <CardRelevant />

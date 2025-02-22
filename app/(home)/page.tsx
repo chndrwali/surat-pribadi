@@ -13,10 +13,10 @@ export default async function Home() {
       </div>
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-5xl sm:text-6xl font-bold text-white mt-[50px]" style={{ textShadow: '2px 2px 0 #0000ff' }}>
-          SUPRI
+          SURNAS
         </h1>
         <p className="text-sm sm:text-xl font-bold text-white mt-2" style={{ textShadow: '2px 2px 0 #0000ff' }}>
-          (Surat Pribadi)
+          (Surat Dinas)
         </p>
         <div className="mt-[170px]">
           <ButtonStart currentUser={currentUser} />

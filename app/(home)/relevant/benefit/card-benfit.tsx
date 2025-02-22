@@ -36,7 +36,7 @@ export const CardBenefit = () => {
         </div>
         <div className="bg-yellow-400 rounded-xl max-w-xs sm:max-w-xl shadow-lg border border-gray-800">
           <div className={`${inter.className} px-6 py-4 space-y-4 text-sm leading-relaxed`}>
-            <p className="text-justify">Setelah peserta didik mempelajari aplikasi ini peserta didik dapat membuat surat pribadi dengan baik dan benar. </p>
+            <p className="text-justify">Setelah peserta didik mempelajari aplikasi ini peserta didik dapat membuat surat dinas dengan baik dan benar. </p>
           </div>
         </div>
       </div>

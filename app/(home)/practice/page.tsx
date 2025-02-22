@@ -19,7 +19,7 @@ export default async function Practice() {
         <p>Lembar Kerja Peserta Didik</p>
         <h1 className="text-6xl font-bold">LKPD</h1>
         <div className="rounded-full bg-emerald-400 text-center p-2">
-          <p>Menulis Surat Pribadi Untuk Kelas 4</p>
+          <p>Menulis Surat Dinas Untuk Kelas 4</p>
         </div>
       </div>
       <FormStart />
