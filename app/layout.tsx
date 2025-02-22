@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Surat Pribadi | SUPRI',
-    template: '%s - Surat Pribadi | SUPRI',
+    default: 'Surat Dinas | SURNAS',
+    template: '%s - Surat Dinas | SURNAS',
   },
   twitter: {
     card: 'summary_large_image',
