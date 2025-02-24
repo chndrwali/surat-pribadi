@@ -70,7 +70,7 @@ export const LiveWork = () => {
               <ChevronRight className="h-4 w-4" />
             </Button>
           ) : (
-            <Button variant="outline" size="icon" onClick={() => router.push('/practice/activity-three')}>
+            <Button variant="outline" size="icon" onClick={() => router.push('/practice/activity-three/word')}>
               <ChevronRight className="h-4 w-4" />
             </Button>
           )}

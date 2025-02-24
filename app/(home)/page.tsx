@@ -18,7 +18,7 @@ export default async function Home() {
         <p className="text-sm sm:text-xl font-bold text-white mt-2" style={{ textShadow: '2px 2px 0 #0000ff' }}>
           (Surat Dinas)
         </p>
-        <div className="mt-[170px]">
+        <div className="mt-[135px]">
           <ButtonStart currentUser={currentUser} />
         </div>
       </div>

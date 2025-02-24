@@ -8,12 +8,12 @@ const route = [
     link: '/relevant',
   },
   {
-    label: 'Materi',
-    link: '/learning-materials',
-  },
-  {
     label: 'Doa sebelum belajar',
     link: '/doa',
+  },
+  {
+    label: 'Materi',
+    link: '/learning-materials',
   },
   {
     label: 'Praktik',

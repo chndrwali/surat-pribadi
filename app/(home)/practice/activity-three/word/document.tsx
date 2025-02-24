@@ -12,7 +12,7 @@ export const Document = () => {
             <h1 className="rounded-full bg-[#90c95b] px-6 py-2 text-xl font-bold text-white">AKTIVITAS 3</h1>
           </div>
           <div className="mt-2 mb-4">
-            <p className="text-center uppercase text-lg sm:text-xl font-semibold break-words text-gray-800">Perhatikan apa yang gurumu perintah, lalu tulis jawabanmu di bawah ini!</p>
+            <p className="text-center uppercase text-lg sm:text-xl font-semibold break-words text-gray-800">Buatlah surat Dinas Sesuai bagian-bagian yang benar!</p>
           </div>
         </div>
         <Toolbar />

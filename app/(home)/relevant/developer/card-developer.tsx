@@ -1,6 +1,6 @@
 'use client';
 
-import { ButtonNextPrevious } from '@/components/button-next-previous';
+import { ArrowBigLeft } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -31,13 +31,16 @@ export const CardDeveloper = () => {
               <span>Kampus Daerah Sumedang</span>
             </div>
           </div>
+          <button
+            onClick={() => router.back()}
+            className={`mt-4 border-4 border-yellow-700 outline outline-8 outline-yellow-600  flex items-center justify-center w-12 h-12 rounded-full bg-yellow-400 shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-12 hover:bg-yellow-500`}
+          >
+            <ArrowBigLeft className="size-6" />
+          </button>
         </div>
       </div>
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between w-full max-w-lg mt-4">
-        <ButtonNextPrevious onClick={() => router.back()} isLeft={true} />
-      </div>
     </>
   );
 };

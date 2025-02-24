@@ -19,7 +19,7 @@ export default async function HomePage() {
         <HomeLeft />
         <ButtonHome currentUser={currentUser} hide />
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl sm:text-6xl font-bold text-white mt-[50px]" style={{ textShadow: '2px 2px 0 #0000ff' }}>
+          <h1 className="text-3xl sm:text-6xl font-bold text-white mt-[50px]" style={{ textShadow: '2px 2px 0 #0000ff' }}>
             Menu Utama
           </h1>
         </div>

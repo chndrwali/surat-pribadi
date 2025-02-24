@@ -1,7 +1,6 @@
 'use client';
 
-import { ButtonNextPrevious } from '@/components/button-next-previous';
-import { Dot } from 'lucide-react';
+import { ArrowBigLeft, Dot } from 'lucide-react';
 import { Inter } from 'next/font/google';
 import { useRouter } from 'next/navigation';
 
@@ -65,11 +64,12 @@ export const CardCharacteristic = () => {
             </ul>
           </div>
         </div>
-      </div>
-
-      {/* Navigation Buttons */}
-      <div className="flex justify-between w-full max-w-lg mt-4">
-        <ButtonNextPrevious onClick={() => router.back()} isLeft={true} />
+        <button
+          onClick={() => router.back()}
+          className={`mt-4 border-4 border-yellow-700 outline outline-8 outline-yellow-600  flex items-center justify-center w-12 h-12 rounded-full bg-yellow-400 shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-12 hover:bg-yellow-500`}
+        >
+          <ArrowBigLeft className="size-6" />
+        </button>
       </div>
     </>
   );

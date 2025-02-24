@@ -1,18 +1,5 @@
-import { Metadata } from 'next';
-import { VideoWord } from './video-word';
-import { OnlyHome } from '@/components/only-home';
-export const metadata: Metadata = {
-  title: 'Aktivitas 3',
-};
+import { redirect } from 'next/navigation';
 
 export default async function ActivityThree() {
-  return (
-    <>
-      <div className="fixed inset-0 bg-activity_three bg-center bg-cover bg-no-repeat sm:bg-activity_three_wide -z-10" />
-      <section className="relative min-h-screen">
-        <OnlyHome />
-        <VideoWord />
-      </section>
-    </>
-  );
+  return redirect('/practice/activity-three/word');
 }

@@ -122,18 +122,18 @@ export default function TrueFalseQuiz() {
                     onClick={() => handleAnswer(question.id, true)}
                     disabled={submitted}
                   >
-                    ✓
+                    {answers.get(question.id) === true ? '✓' : ''}
                   </Button>
                 </td>
                 <td className="border-2 border-red-500 sm:border-gray-300 p-3 text-center">
                   <Button
                     variant="outline"
                     size="sm"
-                    className={`w-8 h-8 ${answers.get(question.id) === false ? 'bg-red-100 hover:bg-red-100' : ''} ${submitted && !question.correctAnswer ? 'ring-2 ring-green-500' : ''}`}
+                    className={`w-8 h-8 ${answers.get(question.id) === false ? 'bg-green-100 hover:bg-green-100' : ''} ${submitted && !question.correctAnswer ? 'ring-2 ring-green-500' : ''}`}
                     onClick={() => handleAnswer(question.id, false)}
                     disabled={submitted}
                   >
-                    ✗
+                    {answers.get(question.id) === false ? '✓' : ''}
                   </Button>
                 </td>
               </tr>
@@ -152,7 +152,17 @@ export default function TrueFalseQuiz() {
             <Button variant="outline" size="icon" onClick={() => router.back()}>
               <ChevronLeft className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="icon" onClick={() => router.push('/practice/activity-two')}>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => {
+                if (!submitted) {
+                  toast.error('Silakan submit jawaban Anda terlebih dahulu!');
+                  return;
+                }
+                router.push('/practice/activity-two');
+              }}
+            >
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
