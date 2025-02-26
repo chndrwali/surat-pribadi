@@ -94,7 +94,7 @@ export const LetterStructure = Extension.create({
               if (currentSection === 0 && text.length < 15) {
                 errors.push({
                   line,
-                  message: 'Judul minimal 15 karakter/huruf',
+                  message: 'kop surat harus memiliki logo lembaga atau institusi perusahaan',
                   from,
                   to,
                 });
@@ -164,15 +164,15 @@ export const LetterStructure = Extension.create({
               if (currentSection === 10 && !text.includes('yth')) {
                 errors.push({
                   line,
-                  message: 'Salam pembuka diperlukan (contoh: Yth. Ibu Amulistia)',
+                  message: 'masukan alamat tujuan (contoh: Yth. Ibu Amulistia di tempat)',
                   from,
                   to,
                 });
               }
-              if (currentSection === 14 && !text.includes('assalamu')) {
+              if (currentSection === 14 && !text.includes('assalamu') && !text.includes('dengan hormat')) {
                 errors.push({
                   line,
-                  message: 'Salam diperlukan (contoh: assalamu`alaikum)',
+                  message: 'Salam pembuka diperlukan (contoh: assalamu`alaikum / dengan hormat) ',
                   from,
                   to,
                 });
@@ -182,7 +182,7 @@ export const LetterStructure = Extension.create({
               if (currentSection === 15 && text.length < 50) {
                 errors.push({
                   line,
-                  message: 'Paragraf satu terlalu pendek',
+                  message: 'Paragraf pembuka (contoh: Puji dan syukur kita panjatkan kehadirat Allah SWT atas segala rahmat dan karunia-Nya)',
                   from,
                   to,
                 });
@@ -190,14 +190,22 @@ export const LetterStructure = Extension.create({
               if (currentSection === 16 && text.length < 25) {
                 errors.push({
                   line,
-                  message: 'Paragraf dua terlalu pendek',
+                  message: 'Tuliskan maksud dan tujuan surat. Penyampaian informasi pada bagian ini harus ringkas, jelas, dan mudah dipahami ',
+                  from,
+                  to,
+                });
+              }
+              if (currentSection === 17 && text.length < 15) {
+                errors.push({
+                  line,
+                  message: 'Bagian Penutup berisi tentang ucapan terima kasih yang menandai selesainya penyampaian informasi',
                   from,
                   to,
                 });
               }
 
               // Check closing
-              if (currentSection === 17 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
+              if (currentSection === 18 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
                 errors.push({
                   line,
                   message: 'Salam penutup diperlukan (contoh: Wassalamu`alaikum / salam)',

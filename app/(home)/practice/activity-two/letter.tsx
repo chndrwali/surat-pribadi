@@ -20,6 +20,7 @@ interface LetterAnswers {
   tandaTangan: string;
   isiSurat: string;
   namaPengirim: string;
+  alamatTujuan: string;
   [key: string]: string; // Add index signature
 }
 
@@ -35,20 +36,22 @@ const correctAnswers: LetterAnswers = {
   tandaTangan: 'tanda tangan',
   isiSurat: 'isi surat',
   namaPengirim: 'nama pengirim',
+  alamatTujuan: 'alamat tujuan',
 };
 
 const pointValues: Record<string, number> = {
-  salamPembuka: 9,
-  nomor: 9,
-  lampiran: 9,
-  perihal: 9,
-  tanggalSurat: 9,
-  jabatan: 9,
-  salamPenutup: 9,
-  kopSurat: 9,
-  tandaTangan: 9,
-  isiSurat: 10, // One question gets 10 points to make the total exactly 100
-  namaPengirim: 9,
+  salamPembuka: 8,
+  nomor: 8,
+  lampiran: 8,
+  perihal: 8,
+  tanggalSurat: 8,
+  jabatan: 8,
+  salamPenutup: 8,
+  kopSurat: 8,
+  tandaTangan: 8,
+  isiSurat: 12, // One question gets 10 points to make the total exactly 100
+  namaPengirim: 8,
+  alamatTujuan: 8,
 };
 
 export default function LetterComponents() {
@@ -77,7 +80,7 @@ export default function LetterComponents() {
     let totalScore = 0;
     Object.keys(correctAnswers).forEach((key) => {
       if (answers[key]?.toLowerCase() === correctAnswers[key]?.toLowerCase()) {
-        totalScore += pointValues[key] || 9;
+        totalScore += pointValues[key] || 8;
       }
     });
 
@@ -118,6 +121,7 @@ export default function LetterComponents() {
             <h3 className={`font-bold text-lg ${answers.tandaTangan ? 'text-green-600' : ''}`}>Tanda tangan</h3>
             <h3 className={`font-bold text-lg ${answers.isiSurat ? 'text-green-600' : ''}`}>Isi Surat</h3>
             <h3 className={`font-bold text-lg ${answers.namaPengirim ? 'text-green-600' : ''}`}>Nama Pengirim</h3>
+            <h3 className={`font-bold text-lg ${answers.alamatTujuan ? 'text-green-600' : ''}`}>Alamat Tujuan</h3>
           </div>
           <div className="w-full ">
             <div className="flex flex-col items-center justify-center space-y-2">
@@ -176,6 +180,7 @@ export default function LetterComponents() {
           </div>
 
           {/* Right Column - Aligned Right */}
+          <Input className={`w-1/3 border-2 ${getBorderClass('alamatTujuan')}`} value={answers.alamatTujuan || ''} onChange={(e) => setAnswers((prev) => ({ ...prev, alamatTujuan: e.target.value }))} disabled={submitted} />
           <div className="grid gap-4 justify-items-start">
             <Input className={`w-1/3 border-2 ${getBorderClass('salamPembuka')}`} value={answers.salamPembuka || ''} onChange={(e) => setAnswers((prev) => ({ ...prev, salamPembuka: e.target.value }))} disabled={submitted} />
           </div>
