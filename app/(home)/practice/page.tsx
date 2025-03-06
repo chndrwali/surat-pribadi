@@ -22,6 +22,7 @@ export default async function Practice() {
           <p>Menulis Surat Dinas Untuk Kelas 4</p>
         </div>
       </div>
+
       <div className="-mt-[50px] sm:mt-0">
         <FormStart />
       </div>

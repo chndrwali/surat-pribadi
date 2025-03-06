@@ -35,9 +35,9 @@ export const CardRelevant = () => {
               Puji dan syukur ke hadirat Allah swt. karena berkat rahmat dan karunianya saya dapat menyelesaikan media pembelajaran berbasis Website yang diberi nama &quot;Surnas&quot; yang merupakan kependekan dari surat dinas.
             </p>
             <p className="text-justify">
-              Website Surnas ini merupakan aplikasi yang di dalamnya membahas mengenai materi pembuatan surat. Bukan hanya materi saja, di dalam aplikasi ini juga terdapat beberapa fitur di antaranya yaitu : relevansi, lagu, permainan,
-              serta praktik pembuatan surat. Website ini dikemas dengan semenarik mungkin agar peserta didik mudah untuk memahaminya. Semoga aplikasi ini bermanfaat untuk menambah ilmu pengetahuan dan dapat menambah wawasan bagi para
-              pengguna.
+              Website Surnas ini merupakan website yang di dalamnya membahas mengenai materi pembuatan surat. Bukan hanya materi saja, di dalam website ini juga terdapat beberapa fitur di antaranya yaitu : Relevansi,do&apos;a sebelum
+              belajar ,serta praktik pembuatan surat. Website ini dikemas dengan semenarik mungkin agar peserta didik mudah untuk memahaminya. Semoga website ini bermanfaat untuk menambah ilmu pengetahuan dan dapat menambah wawasan bagi
+              para pengguna.
             </p>
           </div>
         </div>
