@@ -205,7 +205,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check closing
-              if (currentSection === 19 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
+              if (currentSection === 24 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
                 errors.push({
                   line,
                   message: 'Salam penutup diperlukan (contoh: Wassalamu`alaikum / salam)',
@@ -215,7 +215,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check signature
-              if (currentSection === 21 && text.length < 5) {
+              if (currentSection === 26 && text.length < 5) {
                 errors.push({
                   line,
                   message: 'Tanda tangan dan nama pengirim diperlukan, ditulis sebelah kanan',
