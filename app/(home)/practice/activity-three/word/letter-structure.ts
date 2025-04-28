@@ -195,7 +195,7 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-              if (currentSection === 20 && text.length < 15) {
+              if (currentSection === 21 && text.length < 15) {
                 errors.push({
                   line,
                   message: 'Bagian Penutup berisi tentang ucapan terima kasih yang menandai selesainya penyampaian informasi',
@@ -205,7 +205,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check closing
-              if (currentSection === 21 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
+              if (currentSection === 22 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
                 errors.push({
                   line,
                   message: 'Salam penutup diperlukan (contoh: Wassalamu`alaikum / salam)',
