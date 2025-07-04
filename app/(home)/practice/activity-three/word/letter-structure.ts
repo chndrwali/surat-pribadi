@@ -161,7 +161,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check opening greeting
-              if (currentSection === 10 && !text.includes('yth')) {
+              if (currentSection === 10 && !node.textContent.includes('Yth.')) {
                 errors.push({
                   line,
                   message: 'masukan alamat tujuan (contoh: Yth. Ibu Amulistia di tempat)',
@@ -169,10 +169,10 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-              if (currentSection === 14 && !text.includes('assalamu') && !text.includes('dengan hormat')) {
+              if (currentSection === 14 && !node.textContent.includes("Assalamu'alaikum,") && !node.textContent.includes('Dengan hormat')) {
                 errors.push({
                   line,
-                  message: 'Salam pembuka diperlukan (contoh: assalamu`alaikum / dengan hormat) ',
+                  message: 'Salam pembuka diperlukan (contoh: assalamu`alaikum / dengan hormat) diakhiri dengan koma ',
                   from,
                   to,
                 });
@@ -205,10 +205,10 @@ export const LetterStructure = Extension.create({
               }
 
               // Check closing
-              if (currentSection === 22 && !text.includes('wassalamu') && !text.includes('salam') && !text.includes('salam')) {
+              if (currentSection === 22 && !node.textContent.includes('Wassalamualaikum Warahmatullahi Wabarakatuh,') && !node.textContent.includes('Hormat kami,') && !node.textContent.includes('Salam hormat,')) {
                 errors.push({
                   line,
-                  message: 'Salam penutup diperlukan (contoh: Wassalamu`alaikum / salam)',
+                  message: 'Salam penutup diperlukan (contoh: Wassalamualaikum Warahmatullahi Wabarakatuh /Hormat kami/Salam hormat) diakhiri dengan koma',
                   from,
                   to,
                 });
