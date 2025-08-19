@@ -89,6 +89,7 @@ export const LetterStructure = Extension.create({
               const from = pos;
               const to = pos + node.nodeSize;
               const line = findLineNumber(pos);
+              const firstChar = node.textContent.trim().charAt(0);
 
               // Check date format (DD/MM/YYYY, DD-MM-YYYY, or "Place, DD Month YYYY")
               if (currentSection === 0 && text.length < 15) {
@@ -179,7 +180,7 @@ export const LetterStructure = Extension.create({
               }
 
               // Check letter content
-              if (currentSection === 15 && text.length < 50) {
+              if (currentSection === 15 && (text.length < 50 || !firstChar.match(/[A-Z]/))) {
                 errors.push({
                   line,
                   message: 'Paragraf pembuka pada isi surat dinas adalah bagian awal dari isi surat yang berfungsi sebagai pengantar atau penjelasan. Jika diawal kalimat harus menggunakan huruf kapital.',
@@ -187,7 +188,7 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-              if (currentSection === 16 && text.length < 25) {
+              if (currentSection === 16 && (text.length < 25 || !firstChar.match(/[A-Z]/))) {
                 errors.push({
                   line,
                   message: 'Isi surat berisi bagian utama dari surat yang berisi informasi penting yang ingin disampaikan oleh pengirim kepada penerima.',
@@ -195,7 +196,7 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-              if (currentSection === 21 && text.length < 15) {
+              if (currentSection === 21 && (text.length < 15 || !firstChar.match(/[A-Z]/))) {
                 errors.push({
                   line,
                   message: 'Penutup berisi tentang ucapan terima kasih yang menandai selesainya penyampaian informasi',
