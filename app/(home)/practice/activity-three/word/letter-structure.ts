@@ -86,6 +86,7 @@ export const LetterStructure = Extension.create({
           doc.descendants((node: ProseMirrorNode, pos: number) => {
             if (node.type.name === 'paragraph') {
               const text = node.textContent.toLowerCase();
+              const firstChar = node.textContent.trim().charAt(0);
               const from = pos;
               const to = pos + node.nodeSize;
               const line = findLineNumber(pos);
@@ -138,23 +139,23 @@ export const LetterStructure = Extension.create({
               if (currentSection === 6 && !text.match(/[0-9]/)) {
                 errors.push({
                   line,
-                  message: 'Nomor surat harus berada di bagian atas surat dan ditulis dibagian kiri',
+                  message: 'Nomor surat harus berada dibagian atas surat dan ditulis dibagian kiri dengan memasukan Kode nomor surat, Nama lembaga yang mengeluarkan surat,bulan dituliskan dengan angka romawi serta tahun',
                   from,
                   to,
                 });
               }
-              if (currentSection === 7 && !text.includes('lampiran')) {
+              if (currentSection === 7 && !node.textContent.includes('Lampiran')) {
                 errors.push({
                   line,
-                  message: 'lampiran harus berada di bagian atas surat dan ditulis dibagian kiri',
+                  message: 'Lampiran merupakan Dokumen tambahan yang dilampirkan atau disertakan pada dokumen utama untuk memberikan informasi pendukung. Jika terdapat 1 dokumen maka tulis 1, jika tidak ada lampiran maka tulis –',
                   from,
                   to,
                 });
               }
-              if (currentSection === 8 && !text.includes('perihal')) {
+              if (currentSection === 8 && !node.textContent.includes('Perihal') && !text.includes('permohonan izin kegiatan')) {
                 errors.push({
                   line,
-                  message: 'perihal harus berada di bagian atas surat dan ditulis dibagian kiri',
+                  message: 'Perihal menunjukkan isi atau inti dari surat secara singkat, jika surat yang dibuat mengenai izin kegiatan maka tulis “permohonan izin kegiatan”',
                   from,
                   to,
                 });
@@ -164,7 +165,7 @@ export const LetterStructure = Extension.create({
               if (currentSection === 10 && !node.textContent.includes('Yth.')) {
                 errors.push({
                   line,
-                  message: 'masukan alamat tujuan (contoh: Yth. Ibu Amulistia di tempat)',
+                  message: 'Masukan alamat tujuan contoh Yth. Ibu Aminah di tempat. Huruf Y pada kata “Yth” harus diawali dengan huruf kapital, Setelah kata Yth beri tanda titik (.)',
                   from,
                   to,
                 });
@@ -179,26 +180,26 @@ export const LetterStructure = Extension.create({
               }
 
               // Check letter content
-              if (currentSection === 15 && text.length < 50) {
+              if ((currentSection === 15 && text.length < 50) || !firstChar.match(/[A-Z]/)) {
                 errors.push({
                   line,
-                  message: 'Paragraf pembuka (contoh: Puji dan syukur kita panjatkan kehadirat Allah SWT atas segala rahmat dan karunia-Nya)',
+                  message: 'Paragraf pembuka pada isi surat dinas adalah bagian awal dari isi surat yang berfungsi sebagai pengantar atau penjelasan. Jika diawal kalimat harus menggunakan huruf kapital.',
                   from,
                   to,
                 });
               }
-              if (currentSection === 16 && text.length < 25) {
+              if ((currentSection === 16 && text.length < 25) || !firstChar.match(/[A-Z]/)) {
                 errors.push({
                   line,
-                  message: 'Tuliskan maksud dan tujuan surat. Penyampaian informasi pada bagian ini harus ringkas, jelas, dan mudah dipahami ',
+                  message: 'Isi surat berisi bagian utama dari surat yang berisi informasi penting yang ingin disampaikan oleh pengirim kepada penerima.',
                   from,
                   to,
                 });
               }
-              if (currentSection === 21 && text.length < 15) {
+              if ((currentSection === 21 && text.length < 15) || !firstChar.match(/[A-Z]/)) {
                 errors.push({
                   line,
-                  message: 'Bagian Penutup berisi tentang ucapan terima kasih yang menandai selesainya penyampaian informasi',
+                  message: 'Penutup berisi tentang ucapan terima kasih yang menandai selesainya penyampaian informasi',
                   from,
                   to,
                 });
