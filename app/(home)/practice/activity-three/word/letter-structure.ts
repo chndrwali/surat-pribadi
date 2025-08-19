@@ -170,7 +170,7 @@ export const LetterStructure = Extension.create({
                   to,
                 });
               }
-              if (currentSection === 14 && !node.textContent.includes("Assalamu'alaikum,") && !node.textContent.includes('Dengan hormat')) {
+              if (currentSection === 14 && !node.textContent.includes("Assalamu'alaikum,") && !node.textContent.includes('Dengan hormat,')) {
                 errors.push({
                   line,
                   message: 'Salam pembuka diperlukan (contoh: assalamu`alaikum / dengan hormat) diakhiri dengan koma ',
