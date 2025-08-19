@@ -1,4 +1,4 @@
-.letter-error {
+/* .letter-error {
   background: linear-gradient(to bottom, transparent 95%, #ef4444 95%);
   position: relative;
 }
@@ -25,6 +25,38 @@
   opacity: 0;
   transition: opacity 0.2s;
   pointer-events: none;
+}
+
+.letter-error:hover::after {
+  opacity: 1;
+} */
+
+.letter-error {
+  background: linear-gradient(to bottom, transparent 95%, #ef4444 95%);
+  position: relative;
+}
+
+.letter-error::after {
+  content: attr(data-error);
+  position: absolute;
+  left: 0;
+  bottom: -2.5rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  display: block;
+  width: max-content;
+  max-width: 800px;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+  transform: translateX(-20%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 .letter-error:hover::after {
